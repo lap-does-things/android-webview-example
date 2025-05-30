@@ -2,17 +2,78 @@
 <html lang="en">
 <head>
     <script src="js/app.js"></script>
-    <title>Web App</title>
+    <title>Etikot</title>
 </head>
 <body>
-<img src="assets/BG.png">
-<div>I'm being served up from the assets folder!</div>
-<div>
-    <div style="max-width:960px; margin: auto; text-align:center;">
-        <div style="margin-top: 40px;">
-            <button id="changeColor" type="button" onclick="this.style.backgroundColor='red'">Change color</button>
+    <script>
+        function checkForUserInDB() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'https://etikot.com/api/user/check', true); //TODO : навести всё через MongoDB
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    if (xhr.responseText === 'true') {
+                        console.log('User is in DB');
+                        // Пустить юзню
+                    } else {
+                        console.log('User is not in DB');
+                        //отфутболить на логин скрин
+                        window.location.href = 'login.html';
+                    }
+                } else {
+                    console.log('Error: ' + xhr.status);
+                    window.location.href = 'login.html';
+                }
+            };
+            xhr.send();
+        }
+        //checkForUserInDB(); //TODO
+         window.location.href = 'login.html';
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+        body {
+            background-color: white;
+            font-family: "Neucha";
+            padding: 0;
+            margin: 0;
+        }
+        .bg{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+    </style>
+<img src="assets/EtikotBG.png" class="bg">
+<h1 style="color: #29882C;
+    font-size: 300px;
+    text-align: center;"
+        >ЭТИКОТ</h1>
+<h1
+style="
+font-size:100px;
+text-align: center;
+color:#29882C;
+position: relative;
+margin-top: 70%;
+"
+>
+    ВХОД...
+</h1>
+<!--
+    ==============
+    Ненужная хуйня
+    ==============
+    <div>
+        <h1 style="font-size: 300px;">TEST</h1>
+        <div style="max-width:960px; margin: auto; text-align:center;">
+            <div style="margin-top: 40px;">
+                <button id="changeColor" type="button" onclick="this.style.backgroundColor='red'">Change color</button>
+            </div>
+            <div>I'm being served up from the assets folder!</div>
         </div>
-    </div>
     <div style="margin-top: 40px;">
         <label for="toastMessage">Enter Toast: </label><input id="toastMessage" type="text" placeholder="Toast message"/>
         <br/>
@@ -55,6 +116,6 @@
     <p id="fileContent"><span style="font-style:italic">The file text added below</span><br/><br/></p>
 
 </div>
-<script>checkFreshStart();</script>
+<script>checkFreshStart();</script> -->
 </body>
 </html>
