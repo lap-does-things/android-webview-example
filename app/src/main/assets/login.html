@@ -4,79 +4,90 @@
 </head>
 
 <body>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
-        *{
-            font-family: 'Neucha';
-        }
-        body {
-            background-color: white;
-            font-family: "Neucha";
-            padding: 0;
-            margin: 0;
-        }
-        h1{
-            letter-spacing: 9%;
-            font-size:270px;
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    function registerUser() {
+        const apitoken = '6839cce572702c30a4b3d72c';
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://etikot-3353.restdb.io/rest/users1",
+  "Access-Control-Allow-Origin": "*",
+  "method": "GET",
+  "headers": {
+    "content-type": "application/json",
+    "x-apikey": "6839cce572702c30a4b3d72c",
+    "cache-control": "no-cache"
+  }
+}
+
+$.getJSON(settings).done(function (response) {
+    var a=0;
+    console.log(response);
+if (response.length === 0) {
+    console.log('User is not in DB');
+    alert('Что-то пошло ужасно не так');
+    //отфутболить на логин скрин
+    window.location.href = 'login.html';
+}
+    //console.log(response);
+//go through the response and get the username
+for (var i = 0; i < response.length; i++) {
+    if (response[i].username === document.getElementById('login').value) {
+        console.log('User is in DB');
+        a+=1;
+        // Пустить юзню
+        //check for password
+        if (response[i].password === document.getElementById('password').value) {
+            console.log('Password is correct');
+            a+=1;
+            if (a===2){ // !! УСПЕШНЫЙ ЛОГИН !!
+                //alert('Вы успешно зарегистрировались в системе');
+                window.location.href = 'login.html';
+            }
+            window.location.href = 'login.html';
 
         }
-        .bg{
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-        input{
-            width: 70%;
-            height: 65%;
-            align-self: center;
-            padding: 12px 20px;
-            margin: 40px 0;
-            display: inline-block;
-            border: 5px solid #19391A;
-            box-sizing: border-box;
-            position: relative;
-            left: 15%;
-            scale: 100%;
-            border-radius: 40px;
-            text-align: center;
-            font-size: 70px;
-            color: #0B5D1E;
-            background-color: #95B46A;
-            font-family: 'Neucha';
-        }
-        button{
-            width: 30%;
-            height: 65%;
-            align-self: center;
-            padding: 12px 20px;
-            margin: 40% 0;
-            display: inline-block;
-            border: 5px solid #19391A;
-            box-sizing: border-box;
-            position: relative;
-            left: 35%;
-            scale: 100%;
-            border-radius: 40px;
-            text-align: center;
-            font-size: 70px;
-            color: #1E1E1E;
-            background-color: #0E7B27;
-        }
+    }
 
-    </style>
+}
+})
 
+
+}
+</script>
+    <link rel="stylesheet" href="style.css">
     <img src="assets/EtikotBG.png" class="bg"> <!-- Login background -->
     <h1 style="color: #29882C;
-    text-align: center;"
-        >ЭТИКОТ</h1> <!-- Login title -->
+    text-align: center;">
+    ЭТИКОТ</h1> <!-- Login title -->
     <form>
+        <div class="form-group">
+            <h3>Логин</h3>
+           <!-- <label for="login">Логин</label>-->
+            <input type="text" class="form-control"
+            id="login" placeholder="">
+        </div>
+        <div class="form-group">
+            <h3>Пароль</h3>
+           <!-- <label for="password">Пароль</label>-->
+            <input type="password" class="form-control"
+            id="password" placeholder=""> <br>
+        </div>
+        <button type="button"
+        style="margin-top: 10%; margin-bottom: 10%;"
+        onclick="registerUser()">
+        ВХОД</button>
+    </form>
+  <!--  <form>
         <input type="text" name="login" placeholder="Логин"> <br>
         <input type="password" name="password" placeholder="Пароль"> <br>
-        <button type="submit">ВХОД</button>
-    </form>
+        <button type="submit" style="margin-top: 10%; margin-bottom: 10%;">ВХОД</button>
+    </form>-->
+    <button id="register"
+    type="button"
+    onclick="window.location.href = 'register.html'"
+    >РЕГИСТРАЦИЯ</button>
 
 
 </body>

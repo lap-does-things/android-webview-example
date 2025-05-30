@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<head>
+    <title>Etikot Login</title>
+</head>
+
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    function registerUser() {
+        const apitoken = 'dbbc21b9fff556b12fcc05f6e3f5f48fb26ee';
+        const collection = 'users1';
+        const data = {"username": document.getElementById('login').value,
+         "password": document.getElementById('password').value};
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://etikot-3353.restdb.io/rest/users1",
+  "method": "POST",
+  "headers": {
+    "content-type": "application/json",
+    "x-apikey": apitoken,
+    "cache-control": "no-cache",
+  },
+  "processData": false,
+  "data": JSON.stringify(data)
+}
+
+$.ajax(settings).done(function (response) {
+    window.location.href = 'login.html';
+
+}).always(function (response) {
+  console.log(response);
+  window.location.href = 'login.html';
+});
+
+}
+</script>
+    <link rel="stylesheet" href="style.css">
+    <img src="assets/EtikotBG.png" class="bg"> <!-- Login background -->
+    <h1 style="color: #29882C;
+    text-align: center;"
+        >ЭТИКОТ</h1> <!-- Login title -->
+    <form>
+        <div class="form-group">
+            <h3>Логин</h3>
+           <!-- <label for="login">Логин</label>-->
+            <input type="text" class="form-control"
+            id="login" placeholder="">
+        </div>
+        <div class="form-group">
+            <h3>Пароль</h3>
+           <!-- <label for="password">Пароль</label>-->
+            <input type="password" class="form-control"
+            id="password" placeholder=""> <br>
+        </div>
+        <button type="button" id="register"
+        style="margin-top: 10%; margin-bottom: 10%;"
+        onclick="registerUser()"
+        >РЕГИСТРАЦИЯ</button>
+    </form>
+  <!--  <form>
+        <input type="text" name="login" placeholder="Логин"> <br>
+        <input type="password" name="password" placeholder="Пароль"> <br>
+        <button type="submit" style="margin-top: 10%;
+        margin-bottom: 10%;">ВХОД</button>
+    </form>-->
+
+
+</body>
