@@ -7,7 +7,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
     function registerUser() {
-        const apitoken = 'dbbc21b9fff556b12fcc05f6e3f5f48fb26ee';
         const collection = 'users1';
         const data = {"username": document.getElementById('login').value,
          "password": document.getElementById('password').value};
@@ -18,7 +17,7 @@ var settings = {
   "method": "POST",
   "headers": {
     "content-type": "application/json",
-    "x-apikey": apitoken,
+    "x-apikey": "ВВЕДИ СВОИ ДАННЫЕ УЕБОК",
     "cache-control": "no-cache",
   },
   "processData": false,

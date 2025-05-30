@@ -7,7 +7,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
     function registerUser() {
-        const apitoken = '6839cce572702c30a4b3d72c';
 var settings = {
   "async": true,
   "crossDomain": true,
@@ -16,7 +15,7 @@ var settings = {
   "method": "GET",
   "headers": {
     "content-type": "application/json",
-    "x-apikey": "6839cce572702c30a4b3d72c",
+    "x-apikey": "ВВЕДИ СВОИ ДАННЫЕ УЕБОК",
     "cache-control": "no-cache"
   }
 }
@@ -42,7 +41,7 @@ for (var i = 0; i < response.length; i++) {
             console.log('Password is correct');
             a+=1;
             if (a===2){ // !! УСПЕШНЫЙ ЛОГИН !!
-                //alert('Вы успешно зарегистрировались в системе');
+                alert('Вы успешно зарегистрировались в системе');
                 window.location.href = 'login.html';
             }
             window.location.href = 'login.html';
