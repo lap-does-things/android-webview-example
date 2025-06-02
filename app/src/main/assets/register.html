@@ -1,15 +1,52 @@
 <!DOCTYPE html>
 <head>
     <title>Etikot Login</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
 <body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
     function registerUser() {
-        const collection = 'users1';
-        const data = {"username": document.getElementById('login').value,
-         "password": document.getElementById('password').value};
+    var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://etikot-3353.restdb.io/rest/users1",
+  "method": "GET",
+  "headers": {
+    "content-type": "application/json",
+    "x-apikey": "!!!ВВЕДИ СВОИ ДАННЫЕ УЕБОК!!!",
+    "cache-control": "no-cache"
+  }
+}
+
+$.getJSON(settings).done(function (response) {
+    var a=0;
+    console.log(response);
+if (response.length === 0) {
+    console.log('User is not in DB');
+    alert('Что-то пошло ужасно не так');
+    //отфутболить на логин скрин
+    window.location.href = 'login.html';
+}
+    //console.log(response);
+//go through the response and get the username
+var exi = false;
+for (var i = 0; i < response.length; i++) {
+    if (response[i].username === document.getElementById('login').value) {
+        console.log('User is in DB');
+        alert('Такой пользователь уже существует');
+        exi = true;
+        break;
+        a+=1;
+        window.location.href = 'login.html';
+        }
+    }
+    if (exi != true){
+
+                const collection = 'users1';
+                const data = {"username": document.getElementById('login').value,
+                    "password": document.getElementById('password').value};
 var settings = {
   "async": true,
   "crossDomain": true,
@@ -17,7 +54,7 @@ var settings = {
   "method": "POST",
   "headers": {
     "content-type": "application/json",
-    "x-apikey": "ВВЕДИ СВОИ ДАННЫЕ УЕБОК",
+    "x-apikey": "!!!ВВЕДИ СВОИ ДАННЫЕ УЕБОК!!!",
     "cache-control": "no-cache",
   },
   "processData": false,
@@ -31,6 +68,12 @@ $.ajax(settings).done(function (response) {
   console.log(response);
   window.location.href = 'login.html';
 });
+    }
+
+}
+)
+
+
 
 }
 </script>

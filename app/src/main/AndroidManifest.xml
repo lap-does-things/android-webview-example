@@ -4,7 +4,7 @@
 	xmlns:tools="http://schemas.android.com/tools">
 
 	<!--	Gives permission to access the camera	-->
-	<uses-permission android:name="android.permission.CAMERA" />
+	<!--<uses-permission android:name="android.permission.CAMERA" />-->
 
 	<!--	Gives permission to access the photo gallery	-->
 	<uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />

@@ -98,14 +98,14 @@ class ExampleJavascriptAPI constructor(
 	{
 		evaluateJS("saveState();")
 		{
-			Log.d("SaveState", "Saving State...")
-			runOnUiThread {
-				Toast.makeText(
-					WebApp.app,
-					"Saving WebView state",
-					Toast.LENGTH_LONG
-				).show()
-			}
+			//Log.d("SaveState", "Saving State...")
+			//runOnUiThread {
+			//	Toast.makeText(
+			//		WebApp.app,
+			//		"Saving WebView state",
+			//		Toast.LENGTH_LONG
+			//	).show()
+			//}
 		}
 	}
 

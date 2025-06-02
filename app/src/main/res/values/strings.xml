@@ -1,5 +1,5 @@
 <resources>
-	<string name="app_name">WebView Example</string>
+	<string name="app_name">Этикот</string>
 
 	<!--	Camera	-->
 	<string name="switch_camera_desc">button to switch camera</string>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <head>
     <title>Etikot Login</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
-
 <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
@@ -14,7 +14,7 @@ var settings = {
   "method": "GET",
   "headers": {
     "content-type": "application/json",
-    "x-apikey": "ВВЕДИ СВОИ ДАННЫЕ УЕБОК",
+    "x-apikey": "!!!ВВЕДИ СВОИ ДАННЫЕ УЕБОК!!!",
     "cache-control": "no-cache"
   }
 }
@@ -41,9 +41,9 @@ for (var i = 0; i < response.length; i++) {
             a+=1;
             if (a===2){ // !! УСПЕШНЫЙ ЛОГИН !!
                 alert('Вы успешно зарегистрировались в системе');
-                window.location.href = 'login.html';
+                window.location.href = 'main.html';
             }
-            window.location.href = 'login.html';
+            else {window.location.href = 'login.html';}
 
         }
     }
@@ -73,7 +73,7 @@ for (var i = 0; i < response.length; i++) {
             id="password" placeholder=""> <br>
         </div>
         <button type="button"
-        style="margin-top: 10%; margin-bottom: 10%;"
+        style="margin-top: 0; margin-bottom: 5%;"
         onclick="registerUser()">
         ВХОД</button>
     </form>
@@ -82,6 +82,7 @@ for (var i = 0; i < response.length; i++) {
         <input type="password" name="password" placeholder="Пароль"> <br>
         <button type="submit" style="margin-top: 10%; margin-bottom: 10%;">ВХОД</button>
     </form>-->
+    <br>
     <button id="register"
     type="button"
     onclick="window.location.href = 'register.html'"
