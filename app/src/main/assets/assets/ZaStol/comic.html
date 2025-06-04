@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<head>
+    <title>Etikot</title>
+    <!--<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
+</head>
+<body>
+      <link rel="preload" href="../../whiteflickerfix.css" as="style">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="comicstyle.css">
+    <link rel="stylesheet" href="../../style.css">
+<img src="../EtikotBG.png" class="bg" loading="eager" style="visibility:hidden; border-radius: 0 !important;"
+        onload="this.style.visibility='visible'"> <!-- Login background -->
+<section class="carousel" aria-label="Gallery" style="margin-top: 15%;">
+  <ol class="carousel__viewport">
+    <li id="carousel__slide1"
+        tabindex="0"
+        class="carousel__slide">
+        <img src="panel1.png" loading="lazy">
+      <div class="carousel__snapper">
+      </div>
+    </li>
+    <li id="carousel__slide2"
+        tabindex="0"
+        class="carousel__slide">
+        <img src="panel2.png" loading="lazy">
+      <div class="carousel__snapper"></div>
+    </li>
+    <li id="carousel__slide3"
+        tabindex="0"
+        class="carousel__slide">
+
+        <img src="panel3.png" loading="lazy">
+      <div class="carousel__snapper"></div>
+    </li>
+
+<!-- ПРИМЕР СЛАЙДА
+    <li id="carousel__slide4"
+        tabindex="0"
+        class="carousel__slide">
+      <div class="carousel__snapper"></div>
+      <a href="#carousel__slide3"
+         class="carousel__prev">Go to previous slide</a>
+      <a href="#carousel__slide1"
+         class="carousel__next">Go to first slide</a>
+    </li> ВНИЗУ ТОЧЕЧКИ ТОЖЕ ДЕЛАТЬ
+-->
+
+  </ol>
+  <aside class="carousel__navigation">
+    <ol class="carousel__navigation-list">
+      <li class="carousel__navigation-item">
+        <a href="#carousel__slide1"
+           class="carousel__navigation-button">Go to slide 1</a>
+      </li>
+      <li class="carousel__navigation-item">
+        <a href="#carousel__slide2"
+           class="carousel__navigation-button">Go to slide 2</a>
+      </li>
+      <li class="carousel__navigation-item">
+        <a href="#carousel__slide3"
+           class="carousel__navigation-button">Go to slide 3</a>
+      </li>
+      <!--
+      <li class="carousel__navigation-item">
+        <a href="#carousel__slide4"
+           class="carousel__navigation-button">Go to slide 4</a>
+      </li>
+-->
+    </ol>
+  </aside>
+</section>
+<button style="position: absolute; bottom: 0; right: 0; margin: 1rem;"
+onclick="window.location.href='../../ZaStolom.html'">Назад</button>
+</body>

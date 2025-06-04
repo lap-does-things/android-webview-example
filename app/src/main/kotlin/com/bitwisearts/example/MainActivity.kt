@@ -36,17 +36,17 @@ class MainActivity : ComponentActivity()
 		// Setup the view using Jetpack Compose.
 		setContent {
 			// Check to see if we have the appropriate permissions.
-			ConditionallyRequestPermission(Manifest.permission.CAMERA)
-			{
-				if (!it)
-				{
-					Toast.makeText(
-						WebApp.app,
-						"Did not grant permission to use camera.",
-						Toast.LENGTH_SHORT
-					).show()
-				}
-			}
+			//ConditionallyRequestPermission(Manifest.permission.CAMERA)
+			//{
+		//		if (!it)
+			//	{
+			//		Toast.makeText(
+			//			WebApp.app,
+			//			"Did not grant permission to use camera.",
+			//			Toast.LENGTH_SHORT
+			//		).show()
+			//	}
+			//}//
 			ExampleAppTheme {
 				Surface(
 					modifier = Modifier.fillMaxSize(),

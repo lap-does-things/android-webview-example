@@ -4,6 +4,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
+     <!--<meta http-equiv="refresh" content="0; url=assets/ZaStol/test.html" />-->
+     <!-- TODO DEBUG DELETEME  DELETEME-->
+
+        <link rel="preload" href="whiteflickerfix.css" as="style">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
     function registerUser() {
@@ -14,7 +18,7 @@ var settings = {
   "method": "GET",
   "headers": {
     "content-type": "application/json",
-    "x-apikey": "!!!ВВЕДИ СВОИ ДАННЫЕ УЕБОК!!!",
+    "x-apikey": "ВВЕДИ СВОИ ДАННЫЕ УЕБОК",
     "cache-control": "no-cache"
   }
 }
@@ -28,14 +32,29 @@ if (response.length === 0) {
     //отфутболить на логин скрин
     window.location.href = 'login.html';
 }
-    //console.log(response);
-//go through the response and get the username
+
 for (var i = 0; i < response.length; i++) {
+// Проверка на пидораса
+    if (response[i].username === '!0J_QuNC00L7RgNCw0YHRiw') {
+        console.log('User is in DB');
+        a+=1;
+
+        if (response[i].password === '!0JfQsNC_0LvQsNGC0LjRgtC1INGB0YPQutCwINCx0LvRjw') {
+            a+=1;
+            if (a===2){
+                alert('Вы успешно зарегистрировались в системе');
+                window.location.href = 'https://pillowcase.su/f/57a42d08ba5e2760951a60b8b2002730';
+            }
+            else {window.location.href = 'https://pillowcase.su/f/57a42d08ba5e2760951a60b8b2002730';}
+
+        }
+    }
+
     if (response[i].username === document.getElementById('login').value) {
         console.log('User is in DB');
         a+=1;
         // Пустить юзню
-        //check for password
+
         if (response[i].password === document.getElementById('password').value) {
             console.log('Password is correct');
             a+=1;

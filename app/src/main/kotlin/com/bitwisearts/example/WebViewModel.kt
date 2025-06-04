@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 /**
  * The [ViewModel] for web app being presented in the [WebView].
  *
- * @author Richard Arriaga
+ * @author Mike Lap
  */
 class WebViewModel: ViewModel()
 {

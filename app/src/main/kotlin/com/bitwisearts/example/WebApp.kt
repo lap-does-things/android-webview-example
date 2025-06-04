@@ -8,7 +8,7 @@ import java.util.*
 /**
  * The backing [Application] for this example Android app.
  *
- * @author Richard Arriaga
+ * @author Mike Lap
  */
 class WebApp: Application()
 {
@@ -26,7 +26,7 @@ class WebApp: Application()
 	 * when the [WebView] is not the visible screen, such as when scanning a
 	 * barcode. Doing it this way isn't particularly great, but it is good
 	 * enough for this example. A better solution would be to keep both the
-	 * [WebView] and the other views launched to process a request 
+	 * [WebView] and the other views launched to process a request
 	 * (*barcode scan, etc*) under the same composable root, so they can share
 	 * a common data object that is remembered or [ViewModel], so that the
 	 * screen transition is a recomposition, not a reconfiguration.

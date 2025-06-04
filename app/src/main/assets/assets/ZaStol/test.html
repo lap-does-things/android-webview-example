@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<head>
+    <title>Etikot</title>
+    <!--<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
+    <link rel="preload" href="../../whiteflickerfix.css" as="style">
+</head>
+<body style="overflow: hidden;">
+    <style>
+        button{
+            font-size: 1rem !important;
+            padding: 3% !important;
+        }
+    </style>
+
+    <script>
+        var correct=0;
+        var answarray = [];
+        function quest(num,answ){
+
+            answarray.push(answ);
+            console.log(answarray);
+             console.error(correct);
+            switch(num){ // ПОЧЕМУ ТРИ БЛЯТЬ!?!??!?
+                // Потому что break.
+
+                //TAKES ME ONE STEP CLOSER TO THE EDGE
+
+                // AND IM ABOUTTA BREAK.
+                case 1:
+                    if (answ == 1){
+                        correct +=1;
+                    }
+                    break;
+                case 2:
+                    if (answ == 2){
+                        correct +=1;
+                    }
+                    break;
+                case 3:
+                    if (answ == 3){
+                        correct +=1;
+                    }
+                    break;
+                case 4:
+                    if (answ == 4){
+                        correct +=1;
+                    }
+                    break;
+                case 5:
+                    if (answ == 1){
+                        correct +=1;
+                    }
+                    break;
+                case 6:
+                    if (answ == 2){
+                        correct +=1;
+                    }
+                    break;
+                case 7:
+                    if (answ == 3){
+                        correct +=1;
+                    }
+                    break;
+                case 8:
+                    if (answ == 4){
+                        correct +=1;
+                    }
+                    break;
+                case 9:
+                    if (answ == 1){
+                        correct +=1;
+                    }
+                    break;
+                case 10:
+                    if (answ == 2){
+                        correct +=1;
+                    }
+                    break;
+            }
+
+            if (answarray.length>=9){ // TODO МЕНЯЙ ЗНАЧЕНИЕ КОГДА МЕНЯЕШЬ КОЛВО ВОПРОСОВ
+                //hide all of the buttons
+                var nodes = document.querySelectorAll('button');
+                Array.prototype.forEach.call(nodes, function(elem, idx) {
+                    elem.style.visibility = "hidden";
+                });
+                document.getElementsByTagName("h2")[0].innerHTML = `У вас ${correct} из ${answarray.length} правильных ответов.`;
+                document.getElementsByTagName("h2")[0].style.scale = 0.9;
+
+                var gobackbtn = document.createElement("button");
+                gobackbtn.innerHTML = "Назад";
+                gobackbtn.onclick = function(){
+                    window.location.href = '../../main.html';
+                }
+                document.body.insertAdjacentElement('beforeEnd', gobackbtn);
+
+                //document.createElement("h2").innerHTML = `У вас ${correct} из ${answarray.length} правильных ответов.`;
+                //document.getElementsByTagName("h2")[0].innerHTML = ```У вас {correct} из {answarray.length} правильных ответов.`;
+            }
+            else{
+                console.error(correct);
+                var nodes = document.querySelectorAll(`#a${num}`);
+                Array.prototype.forEach.call(nodes, function(elem) {
+                    elem.style.visibility = "hidden";
+                    elem.remove();
+                });
+                var nodes = document.querySelectorAll(`h2 #a${num}`);
+                Array.prototype.forEach.call(nodes, function(elem) {
+                    elem.style.visibility = "hidden";
+                    elem.remove();
+                });
+                num+=1;
+                var nodes1 = document.querySelectorAll(`#a${num}`);
+                console.log(nodes1);
+                console.log(num);
+
+                Array.prototype.forEach.call(nodes1, function(elem, idx) {
+                    elem.style.visibility = "visible";
+                });
+
+
+
+            }
+
+}
+
+
+                            //if (answarray.length===4){ // TODO end
+                            //    window.location.href = 'comic.html';
+                            //}
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../../style.css">
+    <img src="../EtikotBG.png" class="bg" loading="eager" style="visibility:hidden; border-radius: 0 !important;"
+        onload="this.style.visibility='visible'"> <!-- Login background -->
+
+<!-- Я ЗНАЮ что это неоптимально, но сюда никто не будет смотреть,
+ и у меня слишком болит голова чтобы писать умный жс-скрипт который будет сам
+ генерировать элементы
+ - Лэп. -->
+
+    <h2     id="a1" style="text-align: center; margin-top: 1rem; ">Как нужно есть за столом?</h2>
+
+    <br id="a1">
+    <button   id='a1' onclick="quest(1,1)">Молча</button>
+        <br id="a1">
+    <button   id='a1' onclick="quest(1,2)">Громко</button>
+        <br id="a1">
+    <button   id='a1' onclick="quest(1,3)">Играть с едой</button>
+        <br id="a1">
+    <button   id='a1' onclick="quest(1,4)">Быстро</button>
+        <br id="a1">
+
+    <h2     id='a2' style="visibility:hidden; text-align: center; margin-top: 1rem; ">Что нужно сделать перед едой?</h2>
+
+    <br id="a2">
+    <button   id='a2' style="visibility: hidden;"onclick="quest(2,1)">Взять игрушку</button>
+    <br id="a2">
+    <button   id='a2' style="visibility: hidden;"onclick="quest(2,2)">Помыть руки</button>
+    <br id="a2">
+    <button   id='a2' style="visibility: hidden;"onclick="quest(2,3)">Высморкаться</button>
+   <br id="a2">
+    <button   id='a2' style="visibility: hidden;"onclick="quest(2,4)">Погулять</button>
+    <br id="a2">
+
+    <h2     id='a3' style="visibility: hidden; text-align: center;
+    margin-top: 1rem; ">Что нужно сказать перед едой?</h2>
+    <br id="a3">
+    <button   id='a3' style="visibility: hidden;" onclick="quest(3,1)">Хорошая погода</button>
+<br id="a3">
+    <button   id='a3' style="visibility: hidden;" onclick="quest(3,2)">Будьте здоровы</button>
+<br id="a3">
+    <button   id='a3' style="visibility: hidden;" onclick="quest(3,3)">Приятного аппетита</button>
+<br id="a3">
+    <button   id='a3' style="visibility: hidden;" onclick="quest(3,4)">Подождите</button>
+<br id="a3">
+
+    <h2     id='a4' style="visibility: hidden; text-align: center;
+    margin-top: 1rem; ">Что нужно сказать после еды?</h2>
+<br id="a4">
+    <button   id='a4' style="visibility: hidden;" onclick="quest(4,1)">Ну, я пошёл!</button>
+<br id="a4">
+    <button   id='a4' style="visibility: hidden;" onclick="quest(4,2)">Всем пока</button>
+<br id="a4">
+    <button   id='a4' style="visibility: hidden;" onclick="quest(4,3)">Принесите ещё</button>
+<br id="a4">
+    <button   id='a4' style="visibility: hidden;" onclick="quest(4,4)">Спасибо</button>
+<br id="a4">
+
+        <h2     id='a5' style="visibility: hidden; text-align: center;
+    margin-top: 1rem; ">Что говорят чтобы уйти в туалет?</h2>
+<br id="a5">
+    <button   id='a5' style="visibility: hidden;" onclick="quest(5,1)">Могу я отлучиться?</button>
+<br id="a5">
+    <button   id='a5' style="visibility: hidden;" onclick="quest(5,2)">Я сейчас обделаюсь!</button>
+<br id="a5">
+    <button   id='a5' style="visibility: hidden;" onclick="quest(5,3)">Я хочу по-большому</button>
+<br id="a5">
+    <button   id='a5' style="visibility: hidden;" onclick="quest(5,4)">Вите надо выйти!</button>
+<br id="a5">
+
+            <h2     id='a6' style="visibility: hidden; text-align: center;
+    margin-top: 1rem; ">Где лучше всего есть?</h2>
+<br id="a6">
+    <button   id='a6' style="visibility: hidden;" onclick="quest(6,1)">У себя</button>
+<br id="a6">
+    <button   id='a6' style="visibility: hidden;" onclick="quest(6,2)">На кухне\в столовой</button>
+<br id="a6">
+    <button   id='a6' style="visibility: hidden;" onclick="quest(6,3)">В ванной</button>
+<br id="a6">
+    <button   id='a6' style="visibility: hidden;" onclick="quest(6,4)">На улице</button>
+<br id="a6">
+
+            <h2     id='a7' style="visibility: hidden; text-align: center;
+    margin-top: 1rem; ">Что лучше сделать в ресторане?</h2>
+<br id="a7">
+    <button   id='a7' style="visibility: hidden;" onclick="quest(7,1)">Громко болтать</button>
+<br id="a7">
+    <button   id='a7' style="visibility: hidden;" onclick="quest(7,2)">Бегать по залу</button>
+<br id="a7">
+    <button   id='a7' style="visibility: hidden;" onclick="quest(7,3)">Поблагодарить официанта</button>
+<br id="a7">
+    <button   id='a7' style="visibility: hidden;" onclick="quest(7,4)">Отвлекать посетителей</button>
+<br id="a7">
+
+            <h2     id='a8' style="visibility: hidden; text-align: center;
+    margin-top: 1rem; ">Чем стоит есть суп?</h2>
+<br id="a8">
+    <button   id='a8' style="visibility: hidden;" onclick="quest(8,1)">Руками</button>
+<br id="a8">
+    <button   id='a8' style="visibility: hidden;" onclick="quest(8,2)">Вилкой</button>
+<br id="a8">
+    <button   id='a8' style="visibility: hidden;" onclick="quest(8,3)">Ножом</button>
+<br id="a8">
+    <button   id='a8' style="visibility: hidden;" onclick="quest(8,4)">Ложкой</button>
+<br id="a8">
+
+            <h2     id='a9' style="visibility: hidden; text-align: center;
+    margin-top: 1rem; ">Как лучше поступить за столом?</h2>
+<br id="a9">
+    <button   id='a9' style="visibility: hidden;" onclick="quest(9,1)">Убирать за собой</button>
+<br id="a9">
+    <button   id='a9' style="visibility: hidden;" onclick="quest(9,2)">Ковыряться в носу</button>
+<br id="a9">
+    <button   id='a9' style="visibility: hidden;" onclick="quest(9,3)">Класть ноги на стол</button>
+<br id="a9">
+    <button   id='a9' style="visibility: hidden;" onclick="quest(9,4)">Сморкаться при всех</button>
+<br id="a9">
+
+              <!--  <h2     id='a10' style="visibility: hidden; text-align: center;
+    margin-top: 1rem; "></h2>
+<br id="a10">
+    <button   id='a10' style="visibility: hidden;" onclick="quest(10,1)">1</button>
+<br id="a10">
+    <button   id='a10' style="visibility: hidden;" onclick="quest(10,2)">2</button>
+<br id="a10">
+    <button   id='a10' style="visibility: hidden;" onclick="quest(10,3)">3</button>
+<br id="a10">
+    <button   id='a10' style="visibility: hidden;" onclick="quest(10,4)">4</button>
+<br id="a10">-->
+
+</body>
